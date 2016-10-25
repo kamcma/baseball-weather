@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" data-ng-app="baseballWeather">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Baseball Weather</title>
+    <script src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+    <script>
+        angular.module('baseballWeather', [])
+            /*.filter('src', ['$sce', function($sce) {
+                return function (selected) {
+                    if (selected != null) {
+                        // goal: http://forecast.io/embed/#lat=41.496223&lon=-81.685146&name=Progressive Field&color=#002b5c
+                        var url = "http://forecast.io/embed/#lat=" + selected.lat.toString() + "&lon=" + selected.lon.toString() + "&name=" + selected.park + "&color=#" + selected.color;
+                        return $sce.trustAsResourceUrl(url);
+                    }
+                };
+            }])*/
+            .controller('parkController', ['$scope', '$sce', function($scope, $sce) {
+                
+                $scope.srcUrl = null;
+
+                $scope.teams = [
+                    {city: "Cleveland", park: "Progressive Field", division: "AL Central", lat: 41.496223, lon: -81.685146, color: "002b5c"},
+                    {city: "Detroit", park: "Comerica Park", division: "AL Central", lat: 42.339167, lon: -83.048611, color: "0c2c56"},
+                    {city: "Minnesota", park: "Target Field", division: "AL Central", lat: 44.981667, lon: -93.278333, color: "002b5c"},
+                    {city: "Kansas City", park: "Kauffman Stadium", division: "AL Central", lat: 39.051389, lon: -94.480556, color: "004687"},
+                    {city: "Chicago", park: "U.S. Cellular Field", division: "AL Central", lat: 41.829909, lon: -87.633889, color: "000000"},
+
+                    {city: "New York", park: "Yankee Stadium", division: "AL East", lat: 41.496223, lon: -81.685146, color: "e4002b"},
+                    {city: "Baltimore", park: "Oriole Park", division: "AL East", lat: 42.339167, lon: -83.048611, color: "df4601"},
+                    {city: "Tampa Bay", park: "Tropicana Field", division: "AL East", lat: 44.981667, lon: -93.278333, color: "092c5c"},
+                    {city: "Boston", park: "Fenway Park", division: "AL East", lat: 39.051389, lon: -94.480556, color: "bd3039"},
+                    {city: "Toronto", park: "Rogers Centre", division: "AL East", lat: 41.829909, lon: -87.633889, color: "134a8e"},
+
+                ];
+
+                $scope.genSrcUrl = function() {
+                    //if (selected != null) {
+                        // goal: http://forecast.io/embed/#lat=41.496223&lon=-81.685146&name=Progressive Field&color=#002b5c
+                        var url = "http://forecast.io/embed/#lat=" + $scope.selected.lat.toString() + "&lon=" + $scope.selected.lon.toString() + "&name=" + $scope.selected.park + "&color=#" + $scope.selected.color;
+                        $scope.srcUrl = $sce.trustAsResourceUrl(url);
+                    //}
+                };
+
+            }]);
+    </script>
+</head>
+<body data-ng-controller="parkController">
+    <div>
+
+        <div id="park-selector">
+            <select data-ng-options="team.city group by team.division for team in teams | orderBy:'city'" data-ng-model="selected" data-ng-change="genSrcUrl()"></select>            
+        </div>
+
+        <div id="weather-widget-embed">
+            <iframe id="forecast_embed" style="border:0;" height="245" width="100%" data-ng-src="{{srcUrl}}"> </iframe>
+        </div>
+
+
+    </div>
+
+</body>
+</html>
