@@ -1,1 +1,1 @@
-web: App --env=production --workdir="./"
+web: baseball-weather --env=production --workdir="./"
