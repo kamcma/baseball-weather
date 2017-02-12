@@ -65,7 +65,7 @@ drop.get(String.self) { request, team in
     case "mil":
         return try drop.view.make("index", ["lat": "43.028125", "lon": "-87.970568", "park": "Miller Park", "color": "B6922E"])  
     default:
-	throw Abort.notFound
+	    return try drop.view.make("error")
     }
 }
 

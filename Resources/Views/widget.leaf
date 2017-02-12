@@ -1,0 +1,7 @@
+#extend("layout")
+
+#export("body") {
+    <div id="weather-widget-embed">
+        <iframe id="forecast_embed" style="border:0;" height="245" width="100%" src="http://forecast.io/embed/#()lat=#(lat)&lon=#(lon)&name=#(park)&color=#()#(color)"> </iframe>
+    </div>
+}
