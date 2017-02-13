@@ -65,8 +65,12 @@ drop.get(String.self) { request, team in
     case "mil":
         return try drop.view.make("widget", ["lat": "43.028125", "lon": "-87.970568", "park": "Miller Park", "color": "B6922E"])  
     default:
-	    return try drop.view.make("error")
+        return try drop.view.make("error")
     }
+}
+
+drop.get("/") { _ in
+    return try drop.view.make("error");
 }
 
 drop.run()
