@@ -2,35 +2,35 @@
 
 #export("body") {
     <ul>
-        <li><a href="ari"></a>Arizona</li>
-        <li><a href="atl"></a>Atlanta</li>
-        <li><a href="bal"></a>Baltimore</li>
-        <li><a href="bos"></a>Boston</li>
-        <li><a href="cha"></a>Chicago (AL)</li>
-        <li><a href="chn"></a>Chicago (NL)</li>
-        <li><a href="cin"></a>Cincinnati</li>
-        <li><a href="cle"></a>Cleveland</li>
-        <li><a href="col"></a>Colorado</li>
-        <li><a href="det"></a>Detroit</li>
-        <li><a href="hou"></a>Houston</li>
-        <li><a href="kca"></a>Kansas City</li>
-        <li><a href="ana"></a>Los Angeles (AL)</li>
-        <li><a href="lan"></a>Los Angeles (NL)</li>
-        <li><a href="mia"></a>Miami</li>
-        <li><a href="mil"></a>Milwaukee</li>
-        <li><a href="min"></a>Minnesota</li>
-        <li><a href="nya"></a>New York (AL)</li>
-        <li><a href="nym"></a>New York (NL)</li>
-        <li><a href="oak"></a>Oakland</li>
-        <li><a href="phi"></a>Philadelphia</li>
-        <li><a href="pit"></a>Pittsburgh</li>
-        <li><a href="sdn"></a>San Diego</li>
-        <li><a href="sfn"></a>San Francisco</li>
-        <li><a href="sea"></a>Seattle</li>
-        <li><a href="sln"></a>St. Louis</li>
-        <li><a href="tba"></a>Tampa Bay</li>
-        <li><a href="tex"></a>Texas</li>
-        <li><a href="tor"></a>Toronto</li>
-        <li><a href="was"></a>Washington</li>
+        <li><a href="ari">Arizona</a></li>
+        <li><a href="atl">Atlanta</a></li>
+        <li><a href="bal">Baltimore</a></li>
+        <li><a href="bos">Boston</a></li>
+        <li><a href="cha">Chicago (AL)</a></li>
+        <li><a href="chn">Chicago (NL)</a></li>
+        <li><a href="cin">Cincinnati</a></li>
+        <li><a href="cle">Cleveland</a></li>
+        <li><a href="col">Colorado</a></li>
+        <li><a href="det">Detroit</a></li>
+        <li><a href="hou">Houston</a></li>
+        <li><a href="kca">Kansas City</a></li>
+        <li><a href="ana">Los Angeles (AL)</a></li>
+        <li><a href="lan">Los Angeles (NL)</a></li>
+        <li><a href="mia">Miami</a></li>
+        <li><a href="mil">Milwaukee</a></li>
+        <li><a href="min">Minnesota</a></li>
+        <li><a href="nya">New York (AL)</a></li>
+        <li><a href="nym">New York (NL)</a></li>
+        <li><a href="oak">Oakland</a></li>
+        <li><a href="phi">Philadelphia</a></li>
+        <li><a href="pit">Pittsburgh</a></li>
+        <li><a href="sdn">San Diego</a></li>
+        <li><a href="sfn">San Francisco</a></li>
+        <li><a href="sea">Seattle</a></li>
+        <li><a href="sln">St. Louis</a></li>
+        <li><a href="tba">Tampa Bay</a></li>
+        <li><a href="tex">Texas</a></li>
+        <li><a href="tor">Toronto</a></li>
+        <li><a href="was">Washington</a></li>
     </ul>
 }
