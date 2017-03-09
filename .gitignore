@@ -1,5 +1,5 @@
-Packages
-.build
-xcuserdata
-*.xcodeproj
-Config/secrets
+.DS_Store
+/.build
+/Packages
+/*.xcodeproj
+/Config/secrets
