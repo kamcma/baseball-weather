@@ -44,7 +44,7 @@ drop.get(String.self) { _, team in
     case "sea":
         return try drop.view.make("widget", ["lat": "47.591384", "lon": "-122.331866", "park": "Safeco Field", "color": "005C5C"])
     case "sfn", "sf":
-        return try drop.view.make("widget", ["lat": "37.778604", "lon": "-122.389012", "park": "AT&T Park", "color": "FD5A1E"])
+        return try drop.view.make("widget", ["lat": "37.778604", "lon": "-122.389012", "park": "AT%26T Park", "color": "FD5A1E"])
     case "sln", "stl":
         return try drop.view.make("widget", ["lat": "38.622636", "lon": "-90.192510", "park": "Busch Stadium", "color": "C41E3A"])
     case "tba", "tb":
