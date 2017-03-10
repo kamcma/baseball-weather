@@ -1,6 +1,9 @@
 import Vapor
+import EnforceHerokuPiggybackSSL
 
 let drop = Droplet()
+
+drop.addConfigurable(middleware: EnforceHerokuPiggybackSSL(), name: "enforceHerokuPiggybackSSL")
 
 drop.get(String.self) { _, team in
     switch team.lowercased() {
