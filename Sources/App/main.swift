@@ -1,9 +1,9 @@
 import Vapor
-import EnforceHerokuPiggybackSSL
+import XFPMiddleware
 
 let drop = Droplet()
 
-drop.addConfigurable(middleware: EnforceHerokuPiggybackSSL(), name: "enforceHerokuPiggybackSSL")
+drop.middleware.append(XFPMiddleware(enabled: drop.environment == .production))
 
 drop.get(String.self) { _, team in
     switch team.lowercased() {
