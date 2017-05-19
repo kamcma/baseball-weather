@@ -1,1 +1,1 @@
-web: App --env=production --config:servers.default.port=$PORT
+web: App --env=production
