@@ -72,7 +72,7 @@ drop.get(String.parameter) { req in
     case "mil":
         lat = 43.028125; lon = -87.970568
     default:
-        throw Abort(.notFound)
+        return Response(redirect: "https://darksky.net")
     }
     return Response(redirect: "\(darkSkyRoot)/\(lat),\(lon)/")
 }
