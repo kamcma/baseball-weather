@@ -26,6 +26,7 @@ class RequestTests: TestCase {
     func testGet() throws {
         try drop.testResponse(to: .get, at: "/")
             .assertStatus(is: .ok)
+            .assertHeader(.contentType, contains: "text/html")
     }
 }
 
