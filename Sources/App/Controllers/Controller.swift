@@ -1,7 +1,7 @@
 final class Controller {
     func index(req: Request) throws -> ResponseRepresentable {
         let team = try req.parameters.next(String.self)
-        let coordinates: (Double, Double)
+        let coordinates: (latitude: Double, longitude: Double)
 
         switch team.lowercased() {
         case "ana", "laa":
@@ -67,6 +67,6 @@ final class Controller {
         default:
             throw Abort(.notFound)
         }
-        return Response(redirect: "https://darksky.net/forecast/\(coordinates.0),\(coordinates.1)/")
+        return Response(redirect: "https://darksky.net/forecast/\(coordinates.latitude),\(coordinates.longitude)/")
     }
 }
