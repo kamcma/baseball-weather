@@ -13,6 +13,11 @@ class RequestTests: TestCase {
             .assertStatus(is: .seeOther)
     }
 
+    func testGetWas() throws {
+        try drop.testResponse(to: .get, at: "/was")
+            .assertStatus(is: .seeOther)
+    }
+
     func testGetBad() throws {
         try drop.testResponse(to: .get, at: "/not")
             .assertStatus(is: .notFound)
@@ -27,6 +32,7 @@ class RequestTests: TestCase {
 extension RequestTests {
     static let allTests = [
         ("testGetCle", testGetCle),
+        ("testGetWas", testGetWas),
         ("testGetBad", testGetBad),
         ("testGet", testGet)
     ]
