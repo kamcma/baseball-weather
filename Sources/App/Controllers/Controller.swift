@@ -1,4 +1,5 @@
 final class Controller {
+    // swiftlint:disable:next cyclomatic_complexity
     func index(req: Request) throws -> ResponseRepresentable {
         let team = try req.parameters.next(String.self)
         let coordinates: (latitude: Double, longitude: Double)
