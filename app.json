@@ -3,5 +3,8 @@
         {
             "url": "https://github.com/kamcma/heroku-buildpack#add-heroku-testpack"
         }
-    ]
+    ],
+    "environments": {
+        "test": { }
+    }
 }
