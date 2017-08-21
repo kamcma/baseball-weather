@@ -6,7 +6,9 @@
     ],
     "environments": {
         "test": {
-            "test": "swift test"
+            "scripts": {
+                "test": "swift test"
+            }
         }
     }
 }
