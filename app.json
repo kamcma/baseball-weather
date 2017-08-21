@@ -1,10 +1,15 @@
 {
     "buildpacks": [
         {
-            "url": "https://github.com/kylef/heroku-buildpack-swift"
+            "url": "https://github.com/vapor-community/heroku-buildpack"
         }
     ],
-    "scripts": {
-        "test": "swift test && exit $?"
+    "environments": {
+        "test": {
+            "scripts": {
+                "test-setup": "sudo apt-get update && sudo apt-get install swift",
+                "test": "swift test && exit $?"
+            }
+        }
     }
 }
