@@ -1,7 +1,7 @@
 {
     "buildpacks": [
         {
-            "url": "https://github.com/vapor-community/heroku-buildpack"
+            "url": "https://github.com/kylef/heroku-buildpack-swift"
         }
     ],
     "scripts": {
