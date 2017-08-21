@@ -4,11 +4,7 @@
             "url": "https://github.com/vapor-community/heroku-buildpack"
         }
     ],
-    "environments": {
-        "test": {
-            "scripts": {
-                "test": "swift test"
-            }
-        }
+    "scripts": {
+        "test": "swift test && exit $?"
     }
 }
