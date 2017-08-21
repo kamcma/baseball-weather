@@ -1,10 +1,12 @@
 {
     "buildpacks": [
         {
-            "url": "https://github.com/kamcma/heroku-buildpack#add-heroku-testpack"
+            "url": "https://github.com/vapor-community/heroku-buildpack"
         }
     ],
     "environments": {
-        "test": { }
+        "test": {
+            "test": "swift test"
+        }
     }
 }
