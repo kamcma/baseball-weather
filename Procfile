@@ -1,1 +1,1 @@
-web: .build/release/Run --env=production
+web: Run --env=production
