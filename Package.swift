@@ -4,10 +4,6 @@ import PackageDescription
 
 let package = Package(
     name: "baseball-weather",
-    products: [
-        .library(name: "App", targets: ["App"]),
-        .executable(name: "Run", targets: ["Run"])
-    ],
     dependencies: [
         .package(url: "https://github.com/vapor/vapor.git", from: "2.3.0")
     ],
