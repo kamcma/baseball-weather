@@ -15,7 +15,7 @@
             "isBackground": false
         },
         {
-            "taskName": "test",
+            "label": "test mac",
             "type": "shell",
             "command": "swift",
             "args": [
@@ -28,7 +28,22 @@
             "isBackground": false
         },
         {
-            "taskName": "lint",
+            "label": "test linux",
+            "type": "shell",
+            "command": "docker",
+            "args": [
+                "run", "--rm",
+                "--volume", "$(pwd):/package",
+                "--workdir", "/package",
+                "kylef/swiftenv:latest",
+                "bash", "-c",
+                "\"apt-get update && apt-get install libssl-dev -y && swiftenv install -s && swift test\""
+            ],
+            "group": "test",
+            "isBackground": false
+        },
+        {
+            "label": "lint",
             "type": "shell",
             "command": "swiftlint",
             "problemMatcher": {
