@@ -1,30 +1,29 @@
 import XCTest
 import Foundation
-import Testing
 import HTTP
 @testable import Vapor
 @testable import App
 
-class RequestTests: TestCase {
-    let drop = try! Droplet.testable()
+class RequestTests: XCTestCase {
+    let app = try! Application.testable()
 
     func testGetCle() throws {
-        try drop.testResponse(to: .get, at: "/cle")
+        try app.testResponse(to: .get, at: "/cle")
             .assertStatus(is: .seeOther)
     }
 
     func testGetWas() throws {
-        try drop.testResponse(to: .get, at: "/was")
+        try app.testResponse(to: .get, at: "/was")
             .assertStatus(is: .seeOther)
     }
 
     func testGetBad() throws {
-        try drop.testResponse(to: .get, at: "/not")
+        try app.testResponse(to: .get, at: "/not")
             .assertStatus(is: .notFound)
     }
 
     func testGet() throws {
-        try drop.testResponse(to: .get, at: "/")
+        try app.testResponse(to: .get, at: "/")
             .assertStatus(is: .ok)
             .assertHeader(.contentType, contains: "text/html")
     }

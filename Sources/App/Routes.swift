@@ -1,12 +1,22 @@
+//import Routing
 import Vapor
-import HTTP
+import MLB
 
-extension Droplet {
-    func setupRoutes(drop: Droplet) throws {
-        get(String.parameter, handler: Controller().index)
+final class Routes: RouteCollection {
+    let app: Application
 
-        get("/") { _ in
-            return try drop.view.make("index.html")
+    init(app: Application) {
+        self.app = app
+    }
+
+    func boot(router: Router) throws {
+        router.get(Team.parameter) { req -> Response in
+            let coordinates = try req.parameter(Team.self).parkCoordinates
+            return req.redirect(to: "https://darksky.net/forecast/\(coordinates.latitude),\(coordinates.longitude)/")
+        }
+
+        router.get { req -> Future<View> in
+            return try req.view().render("index.html")
         }
     }
 }
