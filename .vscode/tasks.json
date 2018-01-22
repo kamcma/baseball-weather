@@ -35,9 +35,11 @@
                 "run", "--rm",
                 "--volume", "$(pwd):/package",
                 "--workdir", "/package",
-                "kylef/swiftenv:latest",
+                //"kylef/swiftenv:latest",
+                "swift:4.0",
                 "bash", "-c",
-                "\"apt-get update && apt-get install libssl-dev -y && swiftenv install -s && swift test\""
+                //"\"apt-get update && apt-get install libssl-dev -y && swiftenv install -s && swift test\""
+                "\"swift test\""
             ],
             "group": "test",
             "isBackground": false
