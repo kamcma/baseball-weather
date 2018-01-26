@@ -3,40 +3,61 @@ import Vapor
 @testable import App
 
 class RequestTests: XCTestCase {
-    func testNothing() throws {
-        XCTAssert(true)
+    var app: Application!
+    var responder: Responder!
+
+    override func setUp() {
+        super.setUp()
+        self.app = try? Application()
+        try? App.boot(self.app)
+        self.responder = try? self.app.make(Responder.self)
     }
 
-    /*
+    override func tearDown() {
+        app = nil
+        responder = nil
+        super.tearDown()
+    }
+
     func testGetCle() throws {
-        try app.testResponse(to: .get, at: "/cle")
-            .assertStatus(is: .seeOther)
+        let request = Request(using: self.app)
+        request.http.method = .get
+        request.http.uri.path = "/cle"
+        let response = try? responder.respond(to: request).blockingAwait()
+        XCTAssertEqual(response?.http.status, .seeOther)
     }
 
     func testGetWas() throws {
-        try app.testResponse(to: .get, at: "/was")
-            .assertStatus(is: .seeOther)
+        let request = Request(using: self.app)
+        request.http.method = .get
+        request.http.uri.path = "/was"
+        let response = try? responder.respond(to: request).blockingAwait()
+        XCTAssertEqual(response?.http.status, .seeOther)
     }
 
     func testGetBad() throws {
-        try app.testResponse(to: .get, at: "/not")
-            .assertStatus(is: .notFound)
+        let request = Request(using: self.app)
+        request.http.method = .get
+        request.http.uri.path = "/not"
+        let response = try? responder.respond(to: request).blockingAwait()
+        XCTAssertEqual(response?.http.status, .notFound)
     }
 
     func testGet() throws {
-        try app.testResponse(to: .get, at: "/")
-            .assertStatus(is: .ok)
-            .assertHeader(.contentType, contains: "text/html")
+        let request = Request(using: self.app)
+        request.http.method = .get
+        request.http.uri.path = "/"
+        let response = try? responder.respond(to: request).blockingAwait()
+        XCTAssertEqual(response?.http.status, .ok)
+        XCTAssertEqual(response?.http.headers[.contentType], "text/html; charset=utf-8")
     }
-    */
 }
 
 extension RequestTests {
     static let allTests = [
-        ("testNothing", testNothing),
-        //("testGetCle", testGetCle),
-        //("testGetWas", testGetWas),
-        //("testGetBad", testGetBad),
-        //("testGet", testGet)
+        ("testGetCle", testGetCle),
+        ("testGetWas", testGetWas),
+        ("testGetBad", testGetBad),
+        ("testGet", testGet)
     ]
 }
