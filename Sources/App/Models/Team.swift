@@ -2,7 +2,7 @@ import MLB
 import Vapor
 
 extension Team: Parameter {
-    public static func make(for parameter: String, using _: Container) throws -> Team {
+    public static func resolveParameter(_ parameter: String, on container: Container) throws -> Team {
         switch parameter.lowercased() {
         case "ana", "laa":
             return .laAngels
