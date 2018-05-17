@@ -8,4 +8,8 @@ public func configure(
     let router = EngineRouter.default()
     try routes(router)
     services.register(router, as: Router.self)
+
+    var middlewares = MiddlewareConfig()
+    middlewares.use(FileMiddleware.self)
+    services.register(middlewares)
 }

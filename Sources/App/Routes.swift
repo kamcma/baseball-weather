@@ -8,7 +8,7 @@ public func routes(_ router: Router) throws {
         return req.redirect(to: "https://darksky.net/forecast/\(coordinates.latitude),\(coordinates.longitude)/")
     }
 
-    router.get { req -> Future<View> in
-        return try req.view().render("index.html")
+    router.get { req -> Response in
+        return req.redirect(to: "index.html")
     }
 }
