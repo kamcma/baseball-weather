@@ -1,72 +1,81 @@
 import MLB
 import Vapor
 
+extension Team {
+    public var slugs: [String] {
+        switch self {
+        case .laAngels:
+            return ["laa"]
+        case .arizona:
+            return ["ari"]
+        case .baltimore:
+            return ["bal"]
+        case .boston:
+            return ["bos"]
+        case .chiCubs:
+            return ["chc", "chn"]
+        case .cincinnati:
+            return ["cin"]
+        case .cleveland:
+            return ["cle"]
+        case .colorado:
+            return ["col"]
+        case .detroit:
+            return ["det"]
+        case .houston:
+            return ["hou"]
+        case .kansasCity:
+            return ["kc"]
+        case .laDodgers:
+            return ["lad", "lan"]
+        case .washington:
+            return ["was"]
+        case .nyMets:
+            return ["nym", "nyn"]
+        case .oakland:
+            return ["oak"]
+        case .pittsburgh:
+            return ["pit"]
+        case .sanDiego:
+            return ["sd", "sdn"]
+        case .seattle:
+            return ["sea"]
+        case .sanFrancisco:
+            return ["sf"]
+        case .stLouis:
+            return ["stl"]
+        case .tampaBay:
+            return ["tb"]
+        case .texas:
+            return ["tex"]
+        case .toronto:
+            return ["tor"]
+        case .minnesota:
+            return ["min"]
+        case .philadelphia:
+            return ["phi"]
+        case .atlanta:
+            return ["atl"]
+        case .chiWhiteSox:
+            return ["cws", "cha"]
+        case .miami:
+            return ["mia"]
+        case .nyYankees:
+            return ["nyy", "nya"]
+        case .milwaukee:
+            return ["mil"]
+        }
+    }
+}
+
 extension Team: Parameter {
     public static func resolveParameter(_ parameter: String, on container: Container) throws -> Team {
-        switch parameter.lowercased() {
-        case "ana", "laa":
-            return .laAngels
-        case "ari":
-            return .arizona
-        case "bal":
-            return .baltimore
-        case "bos":
-            return .boston
-        case "chn", "chc":
-            return .chiCubs
-        case "cin":
-            return .cincinnati
-        case "cle":
-            return .cleveland
-        case "col":
-            return .colorado
-        case "det":
-            return .detroit
-        case "hou":
-            return .houston
-        case "kca", "kc":
-            return .kansasCity
-        case "lan", "lad":
-            return .laDodgers
-        case "was":
-            return .washington
-        case "nym":
-            return .nyMets
-        case "oak":
-            return .oakland
-        case "pit":
-            return .pittsburgh
-        case "sdn", "sd":
-            return .sanDiego
-        case "sea":
-            return .seattle
-        case "sfn", "sf":
-            return .sanFrancisco
-        case "sln", "stl":
-            return .stLouis
-        case "tba", "tb":
-            return .tampaBay
-        case "tex":
-            return .texas
-        case "tor":
-            return .toronto
-        case "min":
-            return .minnesota
-        case "phi":
-            return .philadelphia
-        case "atl":
-            return .atlanta
-        case "cha", "cws":
-            return .chiWhiteSox
-        case "mia":
-            return .miami
-        case "nya", "nyy":
-            return .nyYankees
-        case "mil":
-            return .milwaukee
-        default:
-            throw Abort(.notFound)
+        guard let team = Team.allCases.first(where: { team in
+            team.slugs.contains(parameter.lowercased())
+        }) else {
+            throw Abort.redirect(to: "/")
         }
+        return team
     }
 }
 

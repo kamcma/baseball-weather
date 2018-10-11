@@ -1,5 +1,5 @@
-//import Routing
 import Vapor
+import HtmlVaporSupport
 import MLB
 
 public func routes(_ router: Router) throws {
@@ -8,7 +8,22 @@ public func routes(_ router: Router) throws {
         return req.redirect(to: "https://darksky.net/forecast/\(coordinates.latitude),\(coordinates.longitude)/")
     }
 
-    router.get { req -> Response in
-        return req.redirect(to: "index.html")
+    router.get { _ -> Node in
+        let slugs = Team.allCases.compactMap({ $0.slugs.first }).sorted()
+
+        return html([
+            head([
+                title("Baseball Weather")
+            ]),
+            body([
+                ul(
+                    slugs.map { slug in
+                        li([
+                            a([href("/\(slug)")], [.text("/\(slug)")])
+                        ])
+                    }
+                )
+            ])
+        ])
     }
 }

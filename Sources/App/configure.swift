@@ -10,6 +10,6 @@ public func configure(
     services.register(router, as: Router.self)
 
     var middlewares = MiddlewareConfig()
-    middlewares.use(FileMiddleware.self)
+    middlewares.use(ErrorMiddleware.self)
     services.register(middlewares)
 }

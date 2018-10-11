@@ -15,4 +15,3 @@ FROM ibmcom/swift-ubuntu-runtime:${SWIFT_VERSION}
 WORKDIR /app
 
 COPY --from=0 /app/.build/x86_64-unknown-linux/release/Run .
-COPY Public/ ./Public/
