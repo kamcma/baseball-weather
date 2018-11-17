@@ -73,7 +73,7 @@ extension Team: Parameter {
         guard let team = Team.allCases.first(where: { team in
             team.slugs.contains(parameter.lowercased())
         }) else {
-            throw Abort.redirect(to: "/")
+            throw Abort(.notFound)
         }
         return team
     }
