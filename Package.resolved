@@ -87,8 +87,8 @@
         "repositoryURL": "https://github.com/pointfreeco/swift-html.git",
         "state": {
           "branch": null,
-          "revision": "fc87a0b02450e3ffba4ccad18e442abcafc55850",
-          "version": "0.1.3"
+          "revision": "513bc70a27e1c4df14c85b1cab5146cc4e235a4f",
+          "version": "0.2.0"
         }
       },
       {
@@ -137,6 +137,15 @@
         }
       },
       {
+        "package": "SnapshotTesting",
+        "repositoryURL": "https://github.com/pointfreeco/swift-snapshot-testing.git",
+        "state": {
+          "branch": null,
+          "revision": "129e393c6d17f7f6490fa212f19ae0d558bbd5dc",
+          "version": "1.1.0"
+        }
+      },
+      {
         "package": "TemplateKit",
         "repositoryURL": "https://github.com/vapor/template-kit.git",
         "state": {
@@ -168,8 +177,8 @@
         "repositoryURL": "https://github.com/vapor/vapor.git",
         "state": {
           "branch": null,
-          "revision": "157d3b15336caa882662cc75024dd04b2e225246",
-          "version": "3.1.0"
+          "revision": "54cbf396147aba77ecb32e7fc75a3d13251551b1",
+          "version": "3.1.1"
         }
       },
       {
