@@ -1,10 +1,8 @@
-#if os(Linux)
-
 import XCTest
-@testable import AppTests
 
-XCTMain([
-    testCase(RequestTests.allTests)
-])
+import AppTests
 
-#endif
+var tests = [XCTestCaseEntry]()
+tests += AppTests.__allTests()
+
+XCTMain(tests)

@@ -32,12 +32,3 @@ class RequestTests: XCTestCase {
         XCTAssertEqual(response.http.headers[.contentType], ["text/html; charset=utf-8"])
     }
 }
-
-extension RequestTests {
-    static let allTests = [
-        ("testGetCle", testGetCle),
-        ("testGetWas", testGetWas),
-        ("testGetBad", testGetBad),
-        ("testGet", testGet)
-    ]
-}
