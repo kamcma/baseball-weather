@@ -5,6 +5,7 @@ extension RequestTests {
         ("testGet", testGet),
         ("testGetBad", testGetBad),
         ("testGetCle", testGetCle),
+        ("testGetSD", testGetSD),
         ("testGetWas", testGetWas),
     ]
 }

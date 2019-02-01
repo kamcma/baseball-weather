@@ -21,6 +21,11 @@ class RequestTests: XCTestCase {
         XCTAssertEqual(response.http.status, .seeOther)
     }
 
+    func testGetSD() throws {
+        let response = try app.sendRequest(to: "/sd", method: .GET)
+        XCTAssertEqual(response.http.status, .seeOther)
+    }
+
     func testGetBad() throws {
         let response = try app.sendRequest(to: "/not", method: .GET)
         XCTAssertEqual(response.http.status, .notFound)
