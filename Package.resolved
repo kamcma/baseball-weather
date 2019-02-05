@@ -87,8 +87,8 @@
         "repositoryURL": "https://github.com/pointfreeco/swift-html.git",
         "state": {
           "branch": null,
-          "revision": "513bc70a27e1c4df14c85b1cab5146cc4e235a4f",
-          "version": "0.2.0"
+          "revision": "b1b59b3c48b6c0e1bc8b0b54c7cc7e2b91b9f5e7",
+          "version": "0.2.1"
         }
       },
       {
@@ -105,8 +105,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio.git",
         "state": {
           "branch": null,
-          "revision": "03c541a24dd0558c942b15d8464eb75d70a921c4",
-          "version": "1.12.1"
+          "revision": "98434c1f1d687ff5a24d2cabfbd19b5c7d2d7a2f",
+          "version": "1.13.0"
         }
       },
       {
